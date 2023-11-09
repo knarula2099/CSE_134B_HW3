@@ -41,6 +41,11 @@ p {
     color: var(--paragraph-text-color, rgb(255, 255, 255));
 }
 
+ol, ul {
+    padding: 1dvh;
+    font-size: 1rem;
+}
+
 section {
     display: flex;
     flex-direction: column;
@@ -224,22 +229,39 @@ section {
 }
 
 .primary:has(ul){
-    & ul {
-        list-style-type: none;
+    & ul{
+        list-style: none;
+        padding: 0;
+        justify-content: space-evenly;
         & li {
-           background: var(--secondary-section-color);
-           margin: 3px;
+            background: var(--secondary-section-color);
+            margin: 3px;
+            border-radius: 0.5dvw;
         }
+    }
+    & li {
+        background: var(--secondary-section-color);
+        margin: 3px;
+        border-radius: 0.5dvw;
     }
 }
 
-.secondary:has(ul){
-    & ul {
-        list-style-type: none;
+.secondary:has(ol) {
+    & ol {
+        list-style: none;
+        padding: 0;
+        justify-content: space-evenly;
         & li {
-           background: var(--primary-section-color);
-           margin: 3px;
+            background: var(--primary-section-color);
+            margin: 3px;
+            border-radius: 0.5dvw;
+            padding: 0 2%;
         }
+    }
+    & li {
+        background: var(--primary-section-color);
+        margin: 3px;
+        border-radius: 0.5dvw;
     }
 }
 
