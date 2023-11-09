@@ -9,19 +9,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Karan's CSE 134B Personal Portfolio</title>
         <link href="images/favicon.ico" rel="icon">
-        <style>
-            body {
-                border: 3px solid rgb(0, 0, 0);
-            }
-        </style>
+        <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
         <header>
-            <h1>Karan's Personal Portfolio</h1>
-            <figure>
-                <img src="images/karan_profile.jpg" alt="image of author: Karan" height="300" width="300">
-                <figcaption>The author ^ :)</figcaption>
-            </figure>
+            <img src="images/favicon.ico" alt="Karan's Logo" id="logo">
             <nav>
                 <ol>
                     <li><a href="#About-Me">About Me</a></li>
@@ -35,9 +27,11 @@
                 </ol>
             </nav>
         </header>
-        <hr>
         <main>
-            <section id="About-Me">
+            <div id="intro-dynamic">
+                <h1 id="name">Karan Narula's Personal Portfolio</h1>
+            </div>
+            <section id="About-Me" class="primary">
                 <h2>About Me</h2>
                 <p>Greetings! I'm a dynamic, results-driven professional rooted 
                     in the domains of <strong>Mathematics & Computer Science</strong>, where I 
@@ -56,29 +50,35 @@
 
                 <aside>
                     <h3>What am I looking for?</h3>
-                    <p>I am looking for opportunities to explore the technology field. 
+                    <p id='asidep'>I am looking for opportunities to explore the technology field. 
                         Specifically positions where I can unlock new potential using
                         existing skills, and while developing new ones.</p>
                 </aside>
             </section>
-            <br>
-            <section id="Education">
+            <section id="Education" class="secondary">
                 <h2>Education</h2>
                 <h3>University of California, San Diego</h3>
-                <pre>
-    Bachelor of Science in <b>Mathematics and Computer Science</b>         September 2021 - June 2025
-    GPA: 3.87
-    Extracurricular activities: <i><a href="https://www.csforeach.org/">CS foreach</a>, <a href="https://www.instagram.com/starwarsucsd/">Star Wars Club</a></i>
-                </pre>
+                <picture>
+                    <source type="image/webp" srcset="images/ucsd-logo.webp" media="(min-width: 800px)">
+                    <source type="image/webp" srcset="images/ucsd-logo-small.webp">
+                    <source type="image/jpeg" srcset="images/ucsd-logo.jpg" media="(min-width: 800px)">
+                    <img src="images/ucsd-logo-small.jpg" alt="Sunflower"> 
+                </picture>
+                <ul>
+                    <li>Bachelor of Science in <b>Mathematics and Computer Science</b></li>
+                    <li>Graduation: June 2025</li>
+                    <li>GPA: 3.87</li>
+                    <li>Extracurricular activities: <i><a href="https://www.csforeach.org/">CS foreach</a>, <a href="https://www.instagram.com/starwarsucsd/">Star Wars Club</a></i></li>
+                </ul>
             </section>
-            <section id="Skills">
+            <section id="Skills" class="primary">
                 <h2>Skills</h2>
-                <table>
+                <table id="skills-table">
                     <caption><b><u>A summary of Skills</u></b></caption>
                     <colgroup>
                       <col span="3">
                     </colgroup>
-                    <tr>
+                    <tr id="first-row">
                       <th>Programming Languages</th>
                       <th>Software Methodologies and technologies</th>
                       <th>Other Skills</th>
@@ -126,9 +126,9 @@
                 </table>
             </section>
             <br>
-            <section id="Work-Experience">
+            <section id="Work-Experience" class="secondary">
                 <h2>Work Experience</h2>
-                <h3><span style="color:blueviolet">Intern, Fractal Dataminds: December, 2022 - August, 2023</span></h3>
+                <h3>Intern, Fractal Dataminds: December, 2022 - August, 2023</h3>
                 <ol>
                     <li>Designed and executed the "Fractalized Tennis Bets" internal moonshot project, pushing the boundaries of 
                     conventional approaches.</li> 
@@ -139,7 +139,7 @@
                     <li>Implemented the use of new technologies like Data Version Control (DVC) to enable version control for large 
                         Machine Learning Models.</li>
                 </ol>
-                <h3><span style="color:blueviolet">Apprentice, Fractal Dataminds: June, 2022 - September, 2022</span></h3>
+                <h3>Apprentice, Fractal Dataminds: June, 2022 - September, 2022</h3>
                 <ol>
                     <li>Developed and enhanced a financial portfolio optimization project, backed by external funding</li> 
                     <li>Implemented comprehensive logging functionalities across the project, aiding in performance evaluations.</li>
@@ -149,7 +149,7 @@
                         recognized by senior members for exceptional dedication and commitment</li>
                 </ol>
             </section>
-            <section id = "Projects">
+            <section id = "Projects" class="primary">
                 <h2>Projects</h2>
                 <h3>SayIt Assistant</h3>
                 <ul>
@@ -170,7 +170,7 @@
                     <li>Using streamlit, I created a UI for the user to request their calendars and download it.</li>
                 </ul>
             </section>
-            <div id="Interests">
+            <section id="Interests" class="secondary">
                 <h2>Interests</h2>
                 <h3>Playing the Piano</h3>
                 <p>I have been playing the piano since I was about 7! 
@@ -186,8 +186,8 @@
                     <source src="video/lightsaber_demo.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
-            </div>
-            <section id="Experiments">
+            </section>
+            <section id="Experiments" class="primary">
                 <h2>Experiments</h2>
                 <details>
                     <summary>Click to see a circle using the svg tag</summary>
@@ -198,9 +198,10 @@
                 <details>
                     <summary>Picture tag in practice</summary>
                     <picture>
-                        <source type="image/webp" srcset="images/sunflower.webp">
-                        <source type="image/jpeg" srcset="images/sunflower.jpg">
-                        <img src="images/sunflower.jpg" alt="Sunflower"> 
+                        <source type="image/webp" srcset="images/sunflower.webp" media="(min-width: 800px)">
+                        <source type="image/webp" srcset="images/sunflower-small.webp">
+                        <source type="image/jpeg" srcset="images/sunflower.jpg" media="(min-width: 800px)">
+                        <img src="images/sunflower-small.jpg" alt="Sunflower"> 
                     </picture>
                 </details>
                 <details>
@@ -240,21 +241,11 @@
                     </code>
                     </pre>
                 </details>
-                <math>
-                    <mi>E</mi>
-                    <mo>=</mo>
-                    <mi>m</mi>
-                    <msup>
-                      <mi>c</mi>
-                      <mn>2</mn>
-                    </msup>
-                </math>
             </section>
-            <section id="Contact-Me">
+            <section id="Contact-Me" class="contact">
                 <h2>Contact Me</h2>
                 <form>
                     <fieldset>
-                        <legend>Connect with me</legend>
                         <label for="name">Name</label>
                         <input type="text" id="name" name="flname" placeholder="Your Name...">
                         <br>
@@ -289,8 +280,7 @@
                         <textarea id="comments" name="comments" rows="4" cols="50" placeholder="Your Comments..."></textarea>
                         <br>
                         <button type="submit" value="Submit">Submit</button>
-                    </fieldset>
-                    
+                    </fieldset>   
                 </form>
             </section>
             <br>
@@ -298,21 +288,6 @@
                 <h2>My Template</h2>
                 <p>This is still a work in progress!</p>
             </template>
-            <canvas id="myCanvas"> Your browser does not support the canvas tag. </canvas>
-            <script>
-                <!--design and code taken from w3schools-->
-                let c = document.getElementById("myCanvas");
-                let ctx = c.getContext("2d");
-                ctx.fillStyle = "yellow";
-                ctx.fillRect(20, 20, 75, 50);
-                //Turn transparency on
-                ctx.globalAlpha = 0.2;
-                ctx.fillStyle = "purple";
-                ctx.fillRect(50, 50, 75, 50);
-                c.style.display = "block";
-                c.style.marginLeft = "auto";
-                c.style.marginRight = "auto";
-            </script>         
         </main>
         <hr>
         <footer>
