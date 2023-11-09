@@ -23,7 +23,9 @@ body {
     background-color: var(--main-bg-color, rgb(0, 0, 0));
     color: var(--paragraph-text-color, rgb(251, 206, 177));
     font-family: 'Verdana', sans-serif;
-    line-height: 1.5;
+    font-size: 1em;
+    line-height: 2;
+    line-break: strict;
     display: flex;
     flex-direction: column;
 }
@@ -57,11 +59,12 @@ header {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: 5dvh;
+    height: 8dvh;
     padding: 0.5dvw;
     padding-bottom: 0dvw;
     border-radius: 1dvw;
-}
+    list-style: none;
+} 
 
 #logo {
     height: 4dvh;
@@ -91,7 +94,7 @@ nav li {
 
     & a::after {
         content: '';
-        height: 2px;
+        height: 1px;
         width: 100%;
         position: absolute;
         background: var(--heading-text-color, rgb(255, 8, 0));
@@ -109,9 +112,7 @@ nav li {
         opacity: 1;
         color: var(--heading-text-color, rgb(255, 8, 0));
     }
-}
-
-
+} 
 
 #intro-dynamic {
     background-image: url('/images/karan_profile.jpg');
@@ -119,9 +120,12 @@ nav li {
     height: 40dvh;
     background-repeat: no-repeat;
     background-position: center;
+    display: flex;
     background-size: cover;
     position: relative;
     isolation: isolate;
+    align-items: center;
+    justify-content: center;
 
     &::after {
         content: '';
@@ -135,10 +139,64 @@ nav li {
 
     & h1 {
         color: var(--heading-text-color, rgb(255, 8, 0));
-        font-size: 4vw;
-        align-self: center;
+        font-size: 4em;
+        position: absolute;
+        transform: translate(-50, -50);
     }
 
+}
+
+@media (max-width: 1000px) {
+    #intro-dynamic h1{
+        font-size: 3em;
+    }
+}
+
+@media (max-width: 800px) {
+    #intro-dynamic h1{
+        font-size: 2em;
+    }
+}
+
+#intro-dynamic h1:nth-child(1) {
+	color: transparent;
+	-webkit-text-stroke: 2px #000507;
+}
+
+#intro-dynamic h1:nth-child(2) {
+	color: var(--heading-text-color, rgb(255, 8, 0));
+	animation: animate 4s ease-in-out infinite;
+}
+
+@keyframes animate {
+	0%,
+	100% {
+		clip-path: polygon(
+			0% 45%,
+			16% 44%,
+			33% 50%,
+			54% 60%,
+			70% 61%,
+			84% 59%,
+			100% 52%,
+			100% 100%,
+			0% 100%
+		);
+	}
+
+	50% {
+		clip-path: polygon(
+			0% 60%,
+			15% 65%,
+			34% 66%,
+			51% 62%,
+			67% 50%,
+			84% 45%,
+			100% 46%,
+			100% 100%,
+			0% 100%
+		);
+	}
 }
 
 section {
@@ -236,7 +294,7 @@ aside {
 }
 
 video {
-    width: 100%;
+    width: 70dvw;
     height: 100%;
     border-radius: 1dvw;
 }
@@ -260,6 +318,12 @@ details:hover {
     cursor: pointer;
 }
 
+iframe {
+    width: 50dvw;
+    height: 30dvw;
+    border-radius: 1dvw;
+}
+
 form * {
     box-sizing: border-box;
     line-height: 1.5;
@@ -276,9 +340,16 @@ form fieldset {
     display: flex;
     flex-direction: column;
     width: max-content;
+}
 
-    & button:hover {
+#btn {
+    padding: 0.5em 0.5em;
+    border-radius: 0.5em;
+
+    &:hover {
         cursor: pointer;
         background-color: var(--secondary-bg-color-offset, rgba(248, 107, 107, 0.884));
+        transform: translateY(-0.3rem);
     }
 }
+
